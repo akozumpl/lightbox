@@ -13,3 +13,13 @@ is the point in fact).
 Another caveat is that we have to play smart tricks with keyboard focus so the
 user can not switch into another application. For that see
 xfce4-session/xfce4-session/shutdown.c.
+
+Ray's example
+=============
+
+All in all this means that the we can save ourselves a lot of hacks if we use a
+Gtk window (instead of a bare Gdk window) for the objact making the shade. Note
+that we have to use some kind of a window as it's hardly conceivable X would let
+us paint anywhere on the screen without having an underlying X window. Creating
+a Gtk window is what Ray does and is the cleanest solution for what we want to
+do (besides using compositor).
