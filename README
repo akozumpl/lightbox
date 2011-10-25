@@ -1,0 +1,15 @@
+
+
+What Xfce is doing
+==================
+
+It creates an override_redirect gdk window over the whole sreen and sets the
+darkened screenshot of the root window as the background. Then the spotlighted
+dialog is displayed, but for everything to work it also needs to be
+override_redirect and gets no window manager decorations. In fact the whole
+window stacking just bombs and those are the only two visible windows (hm, that
+is the point in fact).
+
+Another caveat is that we have to play smart tricks with keyboard focus so the
+user can not switch into another application. For that see
+xfce4-session/xfce4-session/shutdown.c.
