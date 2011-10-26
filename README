@@ -1,4 +1,13 @@
+=================
+Anaconda Lightbox
+=================
 
+Lightboxes are used to bring user's attention to a modal dialog by visually
+darkening everything but the dialog and blocking most of the input into areas
+outside of it. This is quite straightforward to achieve on a website or with a
+composing window manager which allows transparent windows. For Anaconda
+(metacity) we have to workaround on the gtk/gdk level to achieve a similarly
+looking result.
 
 What Xfce is doing
 ==================
