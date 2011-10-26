@@ -8,7 +8,18 @@
 
 #include "liblb.h"
 
-static void move_window_to_parent(GtkWidget *parent,
+/**
+ * mylib_get_constant1:
+ *
+ * Return value: (transfer full): a constant, free when you used it
+ */
+gchar *
+lb_mylib_get_constant1 (void)
+{
+   return g_strdup("a constant");
+}
+
+static void lb_move_window_to_parent(GtkWidget *parent,
                                   GdkEventConfigure *e,
                                   GtkWindow *window)
 {
@@ -34,6 +45,15 @@ static void move_window_to_parent(GtkWidget *parent,
     }
 }
 
+/**
+ * lb_show_over:
+ *
+ * @window: (in)
+ *
+ * Show lightbox over window.
+ *
+ * Returns: (transfero full)
+ */
 GtkWindow *lb_show_over(GtkWindow *window)
 {
     GtkWindow *lightbox;
@@ -76,7 +96,7 @@ GtkWindow *lb_show_over(GtkWindow *window)
 
     /* make the shade move with the parent window */
     g_signal_connect(window, "configure-event",
-                     G_CALLBACK (move_window_to_parent), lightbox);
+                     G_CALLBACK (lb_move_window_to_parent), lightbox);
 
     return lightbox;
 }
