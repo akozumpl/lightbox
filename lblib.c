@@ -8,6 +8,31 @@
 
 #include "lblib.h"
 
+static void move_window_to_parent(GtkWidget *parent,
+                                  GdkEventConfigure *e,
+                                  GtkWindow *window)
+{
+    GdkWindow *p_window, *w_window;
+    int pwidth, pheight, width, height, px, py, x, y, nx, ny;
+
+    p_window = gtk_widget_get_window (parent);
+    pwidth = gdk_window_get_width (p_window);
+    pheight = gdk_window_get_height (p_window);
+    gdk_window_get_position(p_window, &px, &py);
+
+    w_window = gtk_widget_get_window (window);
+    width = gdk_window_get_width (w_window);
+    height = gdk_window_get_height (w_window);
+    gdk_window_get_position(w_window, &x, &y);
+
+    nx = px + pwidth / 2 - width / 2; ny = py + pheight / 2 - height / 2;
+
+    if (x != nx || y != ny)
+    {
+        gdk_window_move (w_window, nx, ny);
+        gdk_window_restack(w_window, p_window, TRUE);
+    }
+}
 
 GtkWindow *lb_show_over(GtkWindow *window)
 {
@@ -48,6 +73,10 @@ GtkWindow *lb_show_over(GtkWindow *window)
     pattern = cairo_pattern_create_for_surface (surface);
     gdk_window_set_background_pattern(l_window, pattern);
     cairo_pattern_destroy (pattern);
+
+    /* make the shade move with the parent window */
+    g_signal_connect(window, "configure-event",
+                     G_CALLBACK (move_window_to_parent), lightbox);
 
     return lightbox;
 }
