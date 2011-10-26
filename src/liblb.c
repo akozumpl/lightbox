@@ -6,7 +6,7 @@
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
 
-#include "lblib.h"
+#include "liblb.h"
 
 static void move_window_to_parent(GtkWidget *parent,
                                   GdkEventConfigure *e,

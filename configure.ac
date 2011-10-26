@@ -8,6 +8,7 @@ PKG_CHECK_MODULES([GTK], [gtk+-3.0 >= 3.2.0])
 
 AC_PROG_CC
 AC_PROG_INSTALL
+AC_PROG_LIBTOOL
 
 AC_CONFIG_FILES([Makefile
                  src/Makefile])

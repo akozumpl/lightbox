@@ -1,5 +1,5 @@
 #include <gtk/gtk.h>
-#include "lblib.h"
+#include "liblb.h"
 #include <stdio.h>
 
 static void cb_button(GtkButton *b, GtkWindow *main_window)

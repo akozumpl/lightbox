@@ -2,6 +2,7 @@
 
 set -e
 
+libtoolize
 aclocal
 autoconf
 automake --add-missing
