@@ -52,7 +52,7 @@ static void lb_move_window_to_parent(GtkWidget *parent,
  *
  * Show lightbox over window.
  *
- * Returns: (transfero full)
+ * Return value: (transfer none): the lightbox widget.
  */
 GtkWindow *lb_show_over(GtkWindow *window)
 {
