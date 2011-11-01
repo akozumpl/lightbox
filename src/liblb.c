@@ -9,14 +9,14 @@
 #include "liblb.h"
 
 /**
- * mylib_get_constant1:
+ * lb_get_test_value:
  *
  * Return value: (transfer full): a constant, free when you used it
  */
 gchar *
-lb_mylib_get_constant1 (void)
+lb_get_test_value (void)
 {
-   return g_strdup("a constant");
+   return g_strdup("it works");
 }
 
 static void lb_move_window_to_parent(GtkWidget *parent,
