@@ -2,6 +2,9 @@
 Anaconda Lightbox
 =================
 
+Red Hat Author(s): Ales Kozumplik <akozumpl@redhat.com>
+
+
 Lightboxes are used to bring user's attention to a modal dialog by visually
 darkening everything but the dialog and blocking most of the input into areas
 outside of it. This is quite straightforward to achieve on a website or with a
@@ -32,3 +35,20 @@ that we have to use some kind of a window as it's hardly conceivable X would let
 us paint anywhere on the screen without having an underlying X window. Creating
 a Gtk window is what Ray does and is the cleanest solution for what we want to
 do (besides using compositor).
+
+What this sample provides
+=========================
+
+lb_show_over() method based on Ray's example that darkens the top-level window
+passed to it by creating an overlay window. It also goes to some length to
+demonstrate how this can work with introspection (safe for a memory leak
+perhaps).
+
+See lb_test.c for a C example. See lb.py for a Python example. After running
+./build.sh from the root of the project, those can be tested by:
+
+( cd src; ./lb )
+
+and
+
+( cd src; ./lb-run-python )
